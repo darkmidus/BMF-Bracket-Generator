@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>Winner Information Display</title>
+    <!-- Styles for page layout and appearance -->
+    <style>
+        /* Basic styling for the body */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #666; /* Dark gray background */
+            color: #ffd700; /* Golden Yellow text color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Styling for the winner information container */
+        #winnerInfo {
+            text-align: left;
+            margin-left: 20px;
+            max-width: 50%;
+        }
+
+        /* Styling for the winner's image */
+        #winnerImage {
+            max-width: 18%;
+            max-height: 32%;
+            margin-right: 20px;
+        }
+
+        /* Styling for the main title */
+        h1 {
+            font-size: 48px; /* Adjust the size as needed */
+            margin-bottom: 10px;
+        }
+
+        /* Styling for paragraphs within the winner information */
+        p {
+            font-size: 24px; /* Adjust the size as needed */
+            margin: 10px 0; /* Increased margin for better spacing */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- R6 image -->
+    <img id="winnerImage" src="image/six.png" alt="Winner's Image">
+
+    <!-- Container for winner information -->
+    <div id="winnerInfo">
+        <!-- Winner's information will be dynamically inserted here -->
+    </div>
+
+    <!-- JavaScript code for retrieving and displaying winner information -->
+    <script>
+        // Retrieve winner information from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const winnerUsername = urlParams.get('winnerUsername') || '';
+        const winnerKD = urlParams.get('winnerKD') || '';
+        const winnerKills = urlParams.get('winnerKills') || '';
+        const winnerDeaths = urlParams.get('winnerDeaths') || '';
+        const finalGameScore = urlParams.get('finalGameScore') || '';
+
+        // Display winner information
+        const winnerInfoHtml = `
+            <h1>${winnerUsername}</h1>
+            <p><strong>KD:</strong> ${winnerKD}</p>
+            <p><strong>Kills:</strong> ${winnerKills}</p>
+            <p><strong>Deaths:</strong> ${winnerDeaths}</p>
+            <p><strong>Final Game Score:</strong> ${finalGameScore}</p>
+        `;
+
+        document.getElementById('winnerInfo').innerHTML = winnerInfoHtml;
+    </script>
+
+</body>
+</html>

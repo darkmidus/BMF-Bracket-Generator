@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>Winner Information Form</title>
+    <!-- Styles for page layout and appearance -->
+    <style>
+        /* Basic styling for the body */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #666; /* Dark gray background */
+            color: #ffd700; /* Golden Yellow text color */
+        }
+
+        /* Styling for the main title */
+        h1 {
+            color: #ffd700; /* Golden Yellow */
+            margin-bottom: 20px;
+        }
+
+        /* Styling for labels used in form inputs */
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #ffd700; /* Golden Yellow */
+        }
+
+        /* Styling for form inputs */
+        input {
+            margin-top: 5px;
+            padding: 8px;
+            font-size: 14px;
+            width: 200px;
+        }
+
+        /* Styling for buttons with hover effect */
+        button {
+            background-color: #ffd700; /* Golden Yellow */
+            color: #666; /* Dark Gray text color */
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #ccc; /* Light Gray on hover */
+            color: #ffd700; /* Golden Yellow on hover */
+        }
+
+        /* Styling to hide the winner information form by default */
+        #winnerInfoForm {
+            display: none;
+        }
+
+        /* Styling for the container displaying winner information */
+        #winnerDisplay {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main title for the Winner Information Form -->
+    <h1>Winner Information Form</h1>
+
+    <!-- Button to trigger the display of the winner information form -->
+    <button onclick="showWinnerForm()">Enter Winner Information</button>
+
+    <!-- Form for entering winner information (hidden by default) -->
+    <div id="winnerInfoForm">
+        <label for="winnerUsername">Winner's Username:</label>
+        <input type="text" id="winnerUsername">
+
+        <label for="winnerKD">Winner's KD:</label>
+        <input type="text" id="winnerKD">
+
+        <label for="winnerKills">Winner's Kills:</label>
+        <input type="text" id="winnerKills">
+
+        <label for="winnerDeaths">Winner's Deaths:</label>
+        <input type="text" id="winnerDeaths">
+
+        <label for="finalGameScore">Final Game Score:</label>
+        <input type="text" id="finalGameScore">
+
+        <!-- Button to trigger the display of winner information -->
+        <button onclick="displayWinnerInfo()">Display Winner Information</button>
+    </div>
+
+    <!-- Container for displaying winner information -->
+    <div id="winnerDisplay"></div>
+
+    <!-- JavaScript code for handling form interactions -->
+    <script>
+        // Function to display the winner information form
+        function showWinnerForm() {
+            document.getElementById('winnerInfoForm').style.display = 'block';
+        }
+
+        // Function to collect winner information and redirect to display page
+        function displayWinnerInfo() {
+            // Retrieve winner information from input fields
+            const winnerUsername = document.getElementById('winnerUsername').value;
+            const winnerKD = document.getElementById('winnerKD').value;
+            const winnerKills = document.getElementById('winnerKills').value;
+            const winnerDeaths = document.getElementById('winnerDeaths').value;
+            const finalGameScore = document.getElementById('finalGameScore').value;
+
+            // Redirect to the winner display page with URL parameters
+            window.location.href = `display.html?winnerUsername=${winnerUsername}&winnerKD=${winnerKD}&winnerKills=${winnerKills}&winnerDeaths=${winnerDeaths}&finalGameScore=${finalGameScore}`;
+        }
+    </script>
+
+</body>
+</html>
